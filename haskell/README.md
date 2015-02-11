@@ -1,5 +1,8 @@
 # Dockerfile - tattsun/haskell
-This dockerfile contains latest haskell package based on ubuntu:latest
+This dockerfile contains latest haskell package based on ubuntu:latest.
+
+
+Available on [Docker Hub](https://registry.hub.docker.com/u/tattsun/haskell/).
 
 ## Example
 
