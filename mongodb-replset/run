@@ -6,12 +6,17 @@ mongod --dbpath=/data/node2 --replSet=rp --port=27018 --fork --logpath /var/log/
 mongod --dbpath=/data/node3 --replSet=rp --port=27019 --fork --logpath /var/log/mongodb27019.log --logappend
 
 # configure replication
+PRIVATE_IP = ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | awk '
+ 	match($0, /([0-9]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/) {
+		print substr($0, RSTART, RLENGTH);
+	}
+'
 echo "config = {\
     _id: 'rp',\
     members: [\
-        {_id: 0, host: '192.168.33.10:27017'},\
-        {_id: 1, host: '192.168.33.10:27018'},\
-        {_id: 2, host: '192.168.33.10:27019', arbiterOnly: true}\
+        {_id: 0, host: '$PRIVATE_IP:27017'},\
+        {_id: 1, host: '$PRIVATE_IP:27018'},\
+        {_id: 2, host: '$PRIVATE_IP:27019', arbiterOnly: true}\
     ]\
 } \n rs.initiate(config)" | mongo --port=27017
 
