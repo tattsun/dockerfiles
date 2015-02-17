@@ -11,8 +11,11 @@ echo
 echo "-- Configure replica set"
 
 rm -rf /data/node1/local.*
+rm -rf /data/node1/mongod.lock
 rm -rf /data/node2/local.*
+rm -rf /data/node2/mongod.lock
 rm -rf /data/node3/local.*
+rm -rf /data/node3/mongod.lock
 
 export PRIVATE_IP=`ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | awk '
         match($0, /([0-9]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/) {
