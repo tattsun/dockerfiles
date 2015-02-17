@@ -28,5 +28,5 @@ do
                       {_id: 2, host: '$PRIVATE_IP:27019', arbiterOnly: true}\
                        ]\
                     } \n rs.initiate(config)" | mongo --port=27017
-      $STATUS=$?
+      STATUS=$?
 done
