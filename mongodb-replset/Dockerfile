@@ -16,6 +16,7 @@ RUN apt-get update && \
 
 ADD ./supervisor.conf /etc/supervisord/conf/service.conf
 ADD ./config /root/config
+ADD ./run /root/run
 
 EXPOSE 27017 27018 27019
-CMD ["supervisord", "-n"]
+CMD ["/root/run"]

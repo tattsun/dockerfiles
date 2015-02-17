@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# initialize persistent data
+rm -rf /data/node1/local.*
+rm -rf /data/node1/mongod.lock
+rm -rf /data/node2/*
+
+# exec
+supervisord -n
