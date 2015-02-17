@@ -1,0 +1,20 @@
+# primary & secondary
+mongod --dbpath=/data/node1 --replSet=rp --port=27017 --fork --logpath /var/log/mongodb27017.log --logappend
+mongod --dbpath=/data/node2 --replSet=rp --port=27018 --fork --logpath /var/log/mongodb27018.log --logappend
+# arbiter
+mongod --dbpath=/data/node3 --replSet=rp --port=27019 --fork --logpath /var/log/mongodb27019.log --logappend
+
+# configure replication
+echo "config = {\
+    _id: 'rp',\
+    members: [\
+        {_id: 0, host: 'localhost:27017'},\
+        {_id: 1, host: 'localhost:27018'},\
+        {_id: 2, host: 'localhost:27019', arbiterOnly: true}\
+    ]\
+} \n rs.initiate(config)" | mongo --port=27017
+
+while :
+do
+        sleep 5
+done
