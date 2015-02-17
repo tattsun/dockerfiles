@@ -2,10 +2,10 @@ FROM dockerfile/mongodb:latest
 
 MAINTAINER tattsun <t.t.mc1192.sf@gmail.com>
 
-RUN apt-get update \
-    apt-get -y install git python-setuptools \
-    easy_install supervisor \
-    apt-get clean \
+RUN apt-get update && \
+    apt-get -y install git python-setuptools && \
+    easy_install supervisor && \
+    apt-get clean && \
     mkdir -p /data/node1 && \
     mkdir -p /data/node2 && \
     mkdir -p /data/node3 && \
