@@ -8,5 +8,5 @@ RUN mkdir -p /data/node1 && \
 
 ADD ./run /root/run
 
-EXPOSE 27017 27018
+EXPOSE 27017 27018 27019
 CMD ["/root/run"]
