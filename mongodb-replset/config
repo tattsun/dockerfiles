@@ -1,6 +1,6 @@
 #!/bin/sh
 
-while test `ps auxw | grep mongod | grep -v grep | wc -l` -eq 3
+while test `ps auxw | grep mongod | grep -v grep | wc -l` -lt 3
 do
         echo `ps auxw | grep mongod | grep -v grep | wc -l`
         echo "Waiting for mongodb..."
