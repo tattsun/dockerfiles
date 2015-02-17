@@ -7,8 +7,6 @@ do
         sleep 3
 done
 
-sleep 10
-
 echo
 echo "-- Configure replica set"
 
@@ -18,11 +16,17 @@ export PRIVATE_IP=`ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | awk '
 	}
 '`
 
-echo "config = {\
-    _id: 'rp',\
-    members: [\
-        {_id: 0, host: '$PRIVATE_IP:27017'},\
-        {_id: 1, host: '$PRIVATE_IP:27018'},\
-        {_id: 2, host: '$PRIVATE_IP:27019', arbiterOnly: true}\
-    ]\
-} \n rs.initiate(config)" | mongo --port=27017
+$STATUS=-1
+
+while test $STATUS -eq -1
+do
+      echo "config = {\
+          _id: 'rp',\
+              members: [\
+                      {_id: 0, host: '$PRIVATE_IP:27017'},\
+                      {_id: 1, host: '$PRIVATE_IP:27018'},\
+                      {_id: 2, host: '$PRIVATE_IP:27019', arbiterOnly: true}\
+                       ]\
+                    } \n rs.initiate(config)" | mongo --port=27017
+      $STATUS=$?
+done
