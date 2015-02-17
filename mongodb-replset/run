@@ -1,3 +1,4 @@
+#!/bin/sh
 # primary & secondary
 mongod --dbpath=/data/node1 --replSet=rp --port=27017 --fork --logpath /var/log/mongodb27017.log --logappend
 mongod --dbpath=/data/node2 --replSet=rp --port=27018 --fork --logpath /var/log/mongodb27018.log --logappend
