@@ -4,7 +4,7 @@ This dockerfile contains mongodb replication set.
 ## Architecture
 Primary - Secondary - Arbiter
 
-## Data Presistency
+## Data Persistency
 ```
 /data/node1 -> Primary Database
 /data/node2 -> Secondary Database
