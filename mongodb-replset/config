@@ -25,6 +25,13 @@ echo "config = {\
       ]\
 } \n rs.initiate(config)" | mongo --port=27017
 
+echo $?
+
+if test $? -eq 1
+then
+        exit 1
+fi
+
 while :
 do
         sleep 10
