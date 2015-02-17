@@ -1,7 +1,5 @@
 #!/bin/sh
 
-sleep 30
-
 export PRIVATE_IP=`ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | awk '
  	match($0, /([0-9]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/) {
 		print substr($0, RSTART, RLENGTH);
