@@ -14,6 +14,6 @@ Primary - Secondary - Arbiter
 ## Example
 ```
 $ docker run -p 27017:27017 -p 27018:27018 -d \
-    -v /data/node1:/host/primary -v /data/node2:/host/secondary \
+    -v /host/primary:/data/node1 -v /host/secondary:/data/node2 \
     --name mongoreplset tattsun/mongodb-replset
 ```
