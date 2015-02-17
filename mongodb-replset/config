@@ -16,9 +16,9 @@ export PRIVATE_IP=`ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | awk '
 	}
 '`
 
-$STATUS=-1
+STATUS=-1
 
-while test $STATUS -eq -1
+while test ${STATUS} -eq -1
 do
       echo "config = {\
           _id: 'rp',\
