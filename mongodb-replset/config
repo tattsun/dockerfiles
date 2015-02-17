@@ -27,6 +27,9 @@ RES=`echo "config = {\
 
 ISSUCCEEDED=`echo ${RES} | grep "\"ok\" : 1" | wc -l`
 
+echo ${RES}
+echo ${ISSUCCEEDED}
+
 if test ${ISSUCCEEDED} -eq 0
 then
         echo an error occured
