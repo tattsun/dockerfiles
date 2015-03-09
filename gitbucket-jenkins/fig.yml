@@ -2,8 +2,12 @@ jenkins:
   image: jenkins
   ports:
     - "8080:8080"
+  volumes:
+    - ~/jenkins-data:/var/jenkins_home
 gitbucket:
   image: f99aq8ove/gitbucket
   ports:
     - "80:8080"
     - "29418:29418"
+  volumes:
+    - ~/gitbucket-data:/gitbucket
