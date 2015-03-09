@@ -2,12 +2,8 @@ jenkins:
   image: jenkins
   ports:
     - "8080:8080"
-  links:
-    - gitbucket
 gitbucket:
   image: f99aq8ove/gitbucket
   ports:
     - "80:80"
     - "29418:29418"
-  links:
-    - jenkins
