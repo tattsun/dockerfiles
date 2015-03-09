@@ -7,7 +7,7 @@ jenkins:
 gitbucket:
   image: f99aq8ove/gitbucket
   ports:
-    - "80:8080"
+    - "3000:8080"
     - "29418:29418"
   volumes:
     - ~/gitbucket-data:/gitbucket
